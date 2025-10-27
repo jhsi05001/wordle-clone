@@ -5,6 +5,7 @@ let words = ["about", "alert", "audio", "actor", "allow", "admit", "alive", "asi
             "being", "beads", "bells", "black", "cable", "cover", "carry", "claim", "crime", "cream", 
             "chair", "every", "error", "equal", "extra", "zebra", "horse", "ocean", "heart",  "peace"]
 const cells = document.querySelectorAll('.cell');
+const keys = document.querySelectorAll('.key');
 const TRIES = 6;
 let word = words[Math.floor(Math.random() * words.length)]; //mb change so it resets w every new game
 let currGuess = [];
@@ -43,10 +44,14 @@ function playGame() {
         cell.style.backgroundColor = "white";  // Reset value in cell 
         cell.style.color = "black";  // Reset classes
     });
+    keys.forEach(key => {
+        key.style.backgroundColor = "white";  // Reset value in cell 
+        key.style.color = "black";  // Reset classes
+    });
     document.getElementById('resultDisplay').innerText = "";
 }
 
-// reads the keys typed on keyboard
+// reads the keys typed on keyboard 
 function handleKeyDown(keyboardEvent) { 
     let char = keyboardEvent.key;
     char = String(char);
